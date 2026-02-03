@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, ChevronDown, Target, Mail, Database, Phone, MessageSquare, Star, TrendingUp, Clock, CheckCircle2 } from 'lucide-react';
 import { services, getServicesByCategory } from '../lib/data/services';
 import { pricingTiers, getServiceById } from '../lib/data/pricing';
-import StrategyModal from '../components/StrategyModal';
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const coreServices = getServicesByCategory('core').slice(0, 6);
@@ -121,13 +119,13 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button 
-                onClick={() => setIsModalOpen(true)}
+              <Link 
+                to="/contact"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <Link 
                 to="/services"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -298,12 +296,12 @@ export default function Home() {
                       >
                         View Pricing
                       </Link>
-                      <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="w-full px-4 py-2 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors text-sm"
+                      <Link
+                        to="/contact"
+                        className="w-full px-4 py-2 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors text-sm text-center block"
                       >
                         Book a Call
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 );
@@ -377,13 +375,13 @@ export default function Home() {
               We'll map the best plan for your business in a quick call.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <Link
                 to="/contact"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -395,9 +393,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* Strategy Modal */}
-      <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

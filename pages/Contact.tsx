@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ArrowUpRight, Phone, Mail } from 'lucide-react';
-import StrategyModal from '../components/StrategyModal';
 
 export default function Contact() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
@@ -56,18 +54,16 @@ export default function Contact() {
             <p className="text-gray-400 mb-6">
               Schedule a free consultation and let's discuss how we can help grow your contractor business.
             </p>
-            <button
-              onClick={() => setIsModalOpen(true)}
+            <a
+              href="tel:6163342672"
               className="px-8 py-4 rounded-lg bg-[#0066FF] text-white font-semibold shadow-lg shadow-blue-900/40 hover:scale-105 hover:shadow-blue-700/50 transition-all duration-300 flex items-center gap-2 mx-auto"
             >
               Schedule a Free Consultation
               <ArrowUpRight className="w-5 h-5" />
-            </button>
+            </a>
           </div>
         </div>
       </div>
-
-      <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

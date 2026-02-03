@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, ChevronDown, CheckCircle2, Phone, MessageSquare, Database, Clock, Bot, Globe, Target, FileText, Zap, Star, Mail, Users, Settings, RefreshCw, Calendar, Share2 } from 'lucide-react';
 import { getServiceBySlug } from '../lib/data/services';
-import StrategyModal from '../components/StrategyModal';
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? getServiceBySlug(slug) : undefined;
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!service) {
@@ -122,13 +120,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -318,13 +316,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install the Missed Call Text-Back System?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -333,7 +331,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -423,13 +420,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -619,13 +616,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install the AI Website Chatbot?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -634,7 +631,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -724,13 +720,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -925,13 +921,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install Lead Generation Funnels?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -940,7 +936,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -1030,13 +1025,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -1227,13 +1222,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install the Review Growth System?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -1242,7 +1237,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -1332,13 +1326,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -1530,13 +1524,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install a Contractor CRM Setup?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -1545,7 +1539,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -1635,13 +1628,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -1832,13 +1825,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install Automated Follow-Up Sequences?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -1847,7 +1840,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -1937,13 +1929,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -2134,13 +2126,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install Lead Reactivation Campaigns?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -2149,7 +2141,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -2239,13 +2230,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -2437,13 +2428,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install the Appointment Booking System?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -2452,7 +2443,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -2542,13 +2532,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -2738,13 +2728,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install Social Media Lead Funnels?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -2753,7 +2743,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -2843,13 +2832,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -3040,13 +3029,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install the Sales Automation System?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -3055,7 +3044,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -3144,13 +3132,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -3341,13 +3329,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install the AI Voice Assistant?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -3356,7 +3344,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -3445,13 +3432,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -3642,13 +3629,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to install the Client Portal System?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -3657,7 +3644,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -3746,13 +3732,13 @@ export default function ServiceDetail() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  to="/contact"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <Link
                   to="/pricing"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
@@ -3943,13 +3929,13 @@ export default function ServiceDetail() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to deploy your White-Labeled Contractor CRM?
               </h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                to="/contact"
                 className="px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2 mx-auto mb-4"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
               <p className="text-xs text-gray-500">
                 Setup fee equals your monthly price. Ad spend not included.
               </p>
@@ -3958,7 +3944,6 @@ export default function ServiceDetail() {
         </div>
 
         {/* Strategy Modal */}
-        <StrategyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
