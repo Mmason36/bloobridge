@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Badge from '../services/Badge';
 import { getServiceById } from '../../lib/data/pricing';
@@ -104,13 +105,16 @@ export default function PricingTierCard({
         </ul>
       </div>
       
-      <button className="w-full mt-auto px-4 py-2.5 rounded-lg bg-[#0066FF] text-white font-semibold text-sm hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2">
+      <Link
+        to="/contact#form"
+        className="w-full mt-auto px-4 py-2.5 rounded-lg bg-[#0066FF] text-white font-semibold text-sm hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
+      >
         {name === 'Foundation System' ? 'Book Foundation Call' : 
          name === 'Growth System' ? 'Book Growth Call' : 
          name === 'Scale System' ? 'Book Scale Call' : 
          'Book Strategy Call'}
         <ArrowUpRight className="w-4 h-4" />
-      </button>
+      </Link>
     </div>
   );
 }

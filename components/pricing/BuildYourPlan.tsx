@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { pricingServices } from '../../lib/data/pricing';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -113,10 +114,13 @@ export default function BuildYourPlan() {
         Prefer a done-for-you recommendation? We'll map the best plan in 15 minutes.
       </p>
 
-      <button className="w-full px-4 py-2.5 rounded-lg bg-[#0066FF] text-white font-semibold text-sm hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2">
+      <Link
+        to="/contact#form"
+        className="w-full px-4 py-2.5 rounded-lg bg-[#0066FF] text-white font-semibold text-sm hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
+      >
         Request Custom Plan
         <ArrowUpRight className="w-4 h-4" />
-      </button>
+      </Link>
     </div>
   );
 }

@@ -121,7 +121,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -421,7 +421,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -721,7 +721,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -1026,7 +1026,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -1327,7 +1327,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -1629,7 +1629,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -1930,7 +1930,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -2231,7 +2231,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -2533,7 +2533,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -2833,7 +2833,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -3133,7 +3133,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -3433,7 +3433,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call
@@ -3733,7 +3733,7 @@ export default function ServiceDetail() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Book a Call

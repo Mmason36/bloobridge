@@ -1,53 +1,69 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import { services } from '../lib/data/services';
 
 const Navbar: React.FC = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
+  const serviceLinks = [
+    { label: 'Missed Call Text-Back System', path: '/services/missed-call-text-back' },
+    { label: 'AI Website Chatbot', path: '/services/ai-website-chatbot' },
+    { label: 'Lead Generation Funnels', path: '/services/lead-generation-funnels' },
+    { label: 'Review Growth System', path: '/services/review-growth-system' },
+    { label: 'Contractor CRM Setup', path: '/services/contractor-crm-setup' },
+    { label: 'Automated Follow-Up Sequences', path: '/services/automated-follow-up-sequences' },
+    { label: 'Lead Reactivation Campaigns', path: '/services/lead-reactivation-campaigns' },
+    { label: 'Appointment Booking System', path: '/services/appointment-booking-system' },
+    { label: 'Social Media Lead Funnels', path: '/services/social-media-lead-funnels' },
+    { label: 'Sales Automation System', path: '/services/sales-automation-system' },
+    { label: 'AI Voice Assistant', path: '/services/ai-voice-assistant' },
+    { label: 'Client Portal System', path: '/services/client-portal-system' },
+    { label: 'White-Labeled Contractor CRM', path: '/services/white-labeled-contractor-crm' },
+  ];
+
   return (
     <nav className="flex items-center justify-between py-6 px-4 max-w-7xl mx-auto w-full relative z-50">
       {/* Logo */}
-      <Link to="/" className="flex items-center cursor-pointer">
+      <Link to="/" className="flex items-center gap-2 cursor-pointer">
         <img 
           src="/bloo-logo.webp" 
-          alt="BlooBridge Marketing" 
-          className="h-16 md:h-20 w-auto"
+          alt="Bloo Logo" 
+          className="h-14 md:h-16 w-auto"
         />
       </Link>
 
       {/* Links - Desktop */}
-      <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
+      <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
         {/* Services Dropdown */}
         <div 
           className="relative"
           onMouseEnter={() => setIsServicesOpen(true)}
           onMouseLeave={() => setIsServicesOpen(false)}
         >
-          <Link 
-            to="/services" 
-            className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-gray-300 after:opacity-0 hover:after:opacity-100 after:transition-opacity pb-1 flex items-center gap-1"
-          >
+          <button className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
             Services
-            <ChevronDown className="w-4 h-4" />
-          </Link>
-          
-          {/* Dropdown Menu */}
+            <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'transform rotate-180' : ''}`} />
+          </button>
           {isServicesOpen && (
-            <div className="absolute top-full left-0 w-80 z-50">
-              {/* Invisible bridge to prevent gap */}
-              <div className="h-2 w-full"></div>
-              <div className="bg-[#0a0a0a] border border-white/10 rounded-lg shadow-2xl overflow-hidden -mt-2">
-                <div className="max-h-[600px] overflow-y-auto">
-                  {services.map((service) => (
+            <div className="absolute top-full left-0 pt-1 w-64 z-50">
+              <div className="bg-[#0a0a0a] border border-white/10 rounded-lg shadow-xl py-2">
+                <Link
+                  to="/services"
+                  className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-[#0066FF] transition-colors"
+                  onClick={() => setIsServicesOpen(false)}
+                >
+                  All Services
+                </Link>
+                <div className="border-t border-white/10 my-1"></div>
+                <div className="max-h-96 overflow-y-auto">
+                  {serviceLinks.map((link) => (
                     <Link
-                      key={service.id}
-                      to={`/services/${service.slug}`}
-                      className="block px-4 py-3 hover:bg-blue-500/10 hover:text-white transition-colors border-b border-white/5 last:border-b-0"
+                      key={link.path}
+                      to={link.path}
+                      className="block px-4 py-2 text-sm text-gray-400 hover:bg-white/5 hover:text-[#0066FF] transition-colors"
+                      onClick={() => setIsServicesOpen(false)}
                     >
-                      <div className="text-sm font-medium text-white">{service.title}</div>
-                      <div className="text-xs text-gray-400 mt-1">{service.position}</div>
+                      {link.label}
                     </Link>
                   ))}
                 </div>
@@ -55,18 +71,20 @@ const Navbar: React.FC = () => {
             </div>
           )}
         </div>
-        
-        <Link to="/pricing" className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-gray-300 after:opacity-0 hover:after:opacity-100 after:transition-opacity pb-1">Pricing</Link>
-        <Link to="/process" className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-gray-300 after:opacity-0 hover:after:opacity-100 after:transition-opacity pb-1">Process</Link>
-        <Link to="/about" className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-gray-300 after:opacity-0 hover:after:opacity-100 after:transition-opacity pb-1">About</Link>
-        <Link to="/contact" className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-gray-300 after:opacity-0 hover:after:opacity-100 after:transition-opacity pb-1">Contact</Link>
+        <Link to="/pricing" className="hover:text-[#0066FF] transition-colors">Pricing</Link>
+        <Link to="/process" className="hover:text-[#0066FF] transition-colors">Process</Link>
+        <Link to="/about" className="hover:text-[#0066FF] transition-colors">About</Link>
+        <Link to="/contact" className="hover:text-[#0066FF] transition-colors">Contact</Link>
       </div>
 
       {/* CTA Button */}
-      <div className="hidden md:flex items-center gap-4">
-        <button className="text-sm font-medium bg-blue-600/20 hover:bg-blue-600/40 text-blue-300 border border-blue-500/30 rounded-full px-5 py-2 transition-all">
-          Free Consultation
-        </button>
+      <div className="hidden md:flex items-center">
+        <Link
+          to="/contact#form"
+          className="text-sm font-medium bg-[#0066FF] hover:bg-[#0052CC] text-white rounded-lg px-5 py-2 transition-all"
+        >
+          Book a Call
+        </Link>
       </div>
 
       {/* Mobile Menu Icon (Placeholder) */}

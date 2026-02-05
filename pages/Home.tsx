@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ChevronDown, Target, Mail, Database, Phone, MessageSquare, Star, TrendingUp, Clock, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Target, Mail, Database, Phone, MessageSquare, Star, TrendingUp, Clock, CheckCircle2, X, AlertCircle } from 'lucide-react';
 import { services, getServicesByCategory } from '../lib/data/services';
 import { pricingTiers, getServiceById } from '../lib/data/pricing';
 
@@ -9,38 +9,59 @@ export default function Home() {
 
   const coreServices = getServicesByCategory('core').slice(0, 6);
   const processSteps = [
-    { number: '01', title: 'Strategy & Audit', description: 'Review current systems and identify growth opportunities.' },
-    { number: '02', title: 'System Architecture', description: 'Map workflows and design automation structure.' },
-    { number: '03', title: 'Build & Integration', description: 'Configure CRM, install systems, connect tools.' },
-    { number: '04', title: 'Launch & Calibration', description: 'Test workflows and verify everything works.' },
-    { number: '05', title: 'Optimization & Expansion', description: 'Improve conversions and refine messaging.' },
-    { number: '06', title: 'Scale & Leverage', description: 'Reactivate old leads and add new capabilities.' }
+    { number: '01', title: 'Strategy & Audit', description: 'We review your current systems and identify where leads are slipping through.' },
+    { number: '02', title: 'System Architecture', description: 'We map your workflows and design the automation structure.' },
+    { number: '03', title: 'Build & Integration', description: 'We configure your CRM, install systems, and connect all your tools.' },
+    { number: '04', title: 'Launch & Calibration', description: 'We test everything and verify it works before you go live.' },
+    { number: '05', title: 'Optimization & Expansion', description: 'We improve conversions and refine messaging based on results.' },
+    { number: '06', title: 'Scale & Leverage', description: 'We reactivate old leads and add new capabilities as you grow.' }
   ];
 
-  const whatWeDo = [
+  const whatWeInstall = [
     {
-      icon: Target,
-      title: 'Lead Capture',
-      description: 'Funnels, forms, and chatbot systems that turn visitors into qualified leads.'
+      icon: Phone,
+      title: 'Never Miss a Lead Again',
+      description: 'Missed call text-back systems that automatically send SMS when calls go unanswered. Automated lead capture from website forms and chatbots.'
     },
     {
       icon: Mail,
-      title: 'Follow-Up Automation',
-      description: 'SMS and email sequences plus missed-call response that never let leads go cold.'
+      title: 'Follow-Up That Books Estimates',
+      description: 'Automated SMS and email sequences for contractor lead follow-up. Reminder systems for estimates and appointments.'
     },
     {
       icon: Database,
-      title: 'Pipeline & Visibility',
-      description: 'CRM stages, booking systems, and reporting that show you exactly what\'s happening.'
+      title: 'Know Exactly What\'s Happening',
+      description: 'Pipeline tracking and CRM setup for service businesses. Visibility into lead status, job stages, and follow-up activity.'
     }
   ];
 
-  const proofMetrics = [
-    { label: 'Faster response times', value: 'Under 30 seconds', example: true },
-    { label: 'More booked estimates', value: '3-5x conversion', example: true },
-    { label: 'Fewer missed leads', value: '85% recovery rate', example: true },
-    { label: 'More reviews over time', value: '20+ in 90 days', example: true }
+  const revenueLeaks = [
+    'Missed calls go straight to voicemail',
+    'Web forms sit unanswered for hours',
+    'Follow-up happens too slowly',
+    'No reminders for estimates sent',
+    'Reviews never get requested',
+    'Leads slip through the cracks'
   ];
+
+  const beforeAfter = {
+    before: [
+      { label: 'Missed calls', icon: X },
+      { label: 'Manual follow-up', icon: Clock },
+      { label: 'Leads forgotten', icon: AlertCircle },
+      { label: 'Few reviews', icon: Star }
+    ],
+    after: [
+      { label: 'Instant text-back', icon: Phone },
+      { label: 'Automated reminders', icon: Mail },
+      { label: 'Organized pipeline', icon: Database },
+      { label: 'Consistent review requests', icon: TrendingUp }
+    ]
+  };
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
 
   const faqs = [
     {
@@ -64,10 +85,6 @@ export default function Home() {
       answer: 'While built for contractors, our systems work for any local service business that needs lead generation, follow-up automation, and pipeline management.'
     }
   ];
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white relative">
@@ -96,7 +113,7 @@ export default function Home() {
       <div className="fixed inset-0 w-full h-full z-0">
         <img 
           src="/bridge-hero.jpg" 
-          alt="BlooBridge" 
+          alt="Contractor lead generation and automation systems" 
           className="w-full h-full object-cover opacity-40"
           style={{ filter: 'brightness(0.5) saturate(1.3)', objectPosition: 'center' }}
         />
@@ -109,18 +126,18 @@ export default function Home() {
           {/* 1. HERO SECTION */}
           <div className="text-center mb-16 md:mb-20">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight">
-              Automation & <span className="text-[#0066FF]">Lead Generation</span> Systems for Service Businesses
+              Stop Missing Calls. Start Booking More Jobs <span className="text-[#0066FF]">Automatically.</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
-              We install growth infrastructure that captures leads, automates follow-up, and turns interest into booked jobs, without adding overhead.
+              We install automated follow-up, missed-call text-back, pipeline tracking, and review systems that help contractors convert leads into booked jobs—without adding office staff.
             </p>
             <p className="text-sm text-gray-400 mb-8">
-              Built for contractors • Proven for any local service business
+              Built for roofing, HVAC, fencing, plumbing, electrical, and concrete.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <Link 
-                to="/contact"
+                to="/contact#form"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 Book a Call
@@ -134,23 +151,58 @@ export default function Home() {
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
+
+            {/* Stat Bar */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12">
+              <div className="bg-[#0a0a0a]/90 border border-white/10 rounded-lg p-4 text-center">
+                <div className="text-xl md:text-2xl font-bold text-[#0066FF] mb-1">Faster response times</div>
+                <div className="text-xs text-gray-400">Automated lead follow-up</div>
+              </div>
+              <div className="bg-[#0a0a0a]/90 border border-white/10 rounded-lg p-4 text-center">
+                <div className="text-xl md:text-2xl font-bold text-[#0066FF] mb-1">More leads contacted</div>
+                <div className="text-xs text-gray-400">Consistent follow-up</div>
+              </div>
+              <div className="bg-[#0a0a0a]/90 border border-white/10 rounded-lg p-4 text-center">
+                <div className="text-xl md:text-2xl font-bold text-[#0066FF] mb-1">Consistent follow-up</div>
+                <div className="text-xs text-gray-400">Automated sequences</div>
+              </div>
+              <div className="bg-[#0a0a0a]/90 border border-white/10 rounded-lg p-4 text-center">
+                <div className="text-xl md:text-2xl font-bold text-[#0066FF] mb-1">Review requests sent</div>
+                <div className="text-xs text-gray-400">Automatically</div>
+              </div>
+            </div>
           </div>
 
-          {/* 2. TRUST STRIP */}
-          <div className="text-center mb-16 pb-8 border-b border-white/10">
-            <p className="text-sm text-gray-400">
-              <span className="text-gray-300 font-medium">Trusted by:</span>{' '}
-              Roofing • HVAC • Fencing • Plumbing • Electrical • Concrete • and other service businesses
-            </p>
+          {/* 2. REVENUE LEAK SECTION */}
+          <div className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
+              Where Contractors Lose Money (Without Realizing It)
+            </h2>
+            <div className="max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                {revenueLeaks.map((leak, index) => (
+                  <div key={index} className="flex items-start gap-3 bg-[#0a0a0a]/90 border border-white/10 rounded-lg p-4">
+                    <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-gray-300">{leak}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-base text-gray-400 mb-4">
+                These are response and follow-up problems—not branding problems.
+              </p>
+              <p className="text-center text-lg text-gray-300 font-medium">
+                We install systems that close these leaks in days—not months.
+              </p>
+            </div>
           </div>
 
-          {/* 3. WHAT WE DO */}
+          {/* 3. WHAT WE INSTALL */}
           <div className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
               What We Install
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              {whatWeDo.map((item, index) => {
+              {whatWeInstall.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <div
@@ -177,7 +229,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 4. FEATURED SERVICES */}
+          {/* 4. CORE SYSTEMS */}
           <div className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
               Core Systems
@@ -195,7 +247,7 @@ export default function Home() {
                     <h3 className="text-lg font-bold mb-2 text-white">{serviceData.title}</h3>
                     <p className="text-sm text-gray-300 mb-3 leading-relaxed">{serviceData.position}</p>
                     <ul className="space-y-1 mb-4">
-                      {serviceData.includes.slice(0, 2).map((item, idx) => (
+                      {serviceData.includes.slice(0, 3).map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-gray-400">
                           <div className="w-1 h-1 rounded-full bg-[#0066FF] mt-1.5 flex-shrink-0" />
                           <span>{item}</span>
@@ -221,7 +273,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 5. HOW IT WORKS */}
+          {/* 5. PROCESS SECTION */}
           <div className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
               A Structured Process. Zero Guesswork.
@@ -255,9 +307,12 @@ export default function Home() {
 
           {/* 6. PRICING PREVIEW */}
           <div className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
               Structured Pricing. Built to Scale.
             </h2>
+            <p className="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
+              One-time install + monthly optimization. Cancel anytime.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
               {pricingTiers.map((tier) => {
                 const includedServices = tier.includes.slice(0, 3).map(id => getServiceById(id)).filter(Boolean);
@@ -297,7 +352,7 @@ export default function Home() {
                         View Pricing
                       </Link>
                       <Link
-                        to="/contact"
+                        to="/contact#form"
                         className="w-full px-4 py-2 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors text-sm text-center block"
                       >
                         Book a Call
@@ -307,32 +362,123 @@ export default function Home() {
                 );
               })}
             </div>
+            <div className="max-w-2xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div className="text-center">
+                  <CheckCircle2 className="w-5 h-5 text-[#0066FF] mx-auto mb-2" />
+                  <p className="text-xs text-gray-400">No long-term contracts</p>
+                </div>
+                <div className="text-center">
+                  <CheckCircle2 className="w-5 h-5 text-[#0066FF] mx-auto mb-2" />
+                  <p className="text-xs text-gray-400">You own your data</p>
+                </div>
+                <div className="text-center">
+                  <CheckCircle2 className="w-5 h-5 text-[#0066FF] mx-auto mb-2" />
+                  <p className="text-xs text-gray-400">No revenue share</p>
+                </div>
+              </div>
+            </div>
             <p className="text-xs text-gray-500 text-center">Ad spend not included.</p>
           </div>
 
-          {/* 7. PROOF / RESULTS */}
+          {/* 7. BEFORE/AFTER SECTION */}
           <div className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
-              What This System Improves
+              Before vs After
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-              {proofMetrics.map((metric, index) => (
-                <div
-                  key={index}
-                  className="bg-[#0a0a0a]/90 border border-white/10 rounded-lg p-5 text-center"
-                >
-                  <div className="text-2xl font-bold text-[#0066FF] mb-2">{metric.value}</div>
-                  <div className="text-sm text-gray-300 mb-1">{metric.label}</div>
-                  {metric.example && (
-                    <div className="text-xs text-gray-500">(example)</div>
-                  )}
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {/* Before */}
+              <div className="bg-[#0a0a0a]/90 border border-red-500/20 rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-4 text-red-400">Before</h3>
+                <ul className="space-y-3">
+                  {beforeAfter.before.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <li key={index} className="flex items-center gap-3">
+                        <Icon className="w-5 h-5 text-red-400 flex-shrink-0" />
+                        <span className="text-sm text-gray-300">{item.label}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              {/* After */}
+              <div className="bg-[#0a0a0a]/90 border border-[#0066FF]/30 rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-4 text-[#0066FF]">After</h3>
+                <ul className="space-y-3">
+                  {beforeAfter.after.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <li key={index} className="flex items-center gap-3">
+                        <Icon className="w-5 h-5 text-[#0066FF] flex-shrink-0" />
+                        <span className="text-sm text-gray-300">{item.label}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
-            <p className="text-xs text-gray-500 text-center">Case studies coming soon.</p>
           </div>
 
-          {/* 8. FAQ */}
+          {/* 8. IS THIS FOR YOU */}
+          <div className="mb-20 max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-white">
+              Is This For You?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* This is for you if */}
+              <div className="bg-[#0a0a0a]/90 border border-[#0066FF]/20 rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-4 text-[#0066FF]">This is for you if…</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#0066FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-300">You're missing calls because you're on job sites</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#0066FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-300">Leads go cold while you're busy with jobs</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#0066FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-300">You want to systemize follow-up without hiring</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#0066FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-300">You need better pipeline visibility</span>
+                  </li>
+                </ul>
+              </div>
+              {/* Not ideal if */}
+              <div className="bg-[#0a0a0a]/90 border border-white/10 rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-4 text-gray-400">Not ideal if…</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <X className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-400">You're not ready to change your current process</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <X className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-400">You prefer manual follow-up and don't want automation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <X className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-400">You're looking for a marketing agency to run ads</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* 9. SEO PARAGRAPH */}
+          <div className="mb-20 max-w-3xl mx-auto">
+            <div className="bg-[#0a0a0a]/90 border border-white/10 rounded-lg p-8">
+              <p className="text-base text-gray-300 leading-relaxed">
+                We provide lead generation and automation for contractors across roofing, HVAC, fencing, plumbing, electrical, and concrete trades. Our service business automation includes missed call text-back systems that automatically respond when calls go unanswered, contractor lead follow-up sequences via SMS and email, pipeline tracking through CRM setup, and review request systems that send automated requests after job completion. These systems help contractors improve response times, maintain consistent follow-up, and convert more leads into booked jobs without adding office staff. If you're a contractor looking to tighten up lead handling and reduce missed opportunities, we install and configure these systems for your business.
+              </p>
+            </div>
+          </div>
+
+          {/* 10. FAQ */}
           <div className="mb-20 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
               Frequently Asked Questions
@@ -366,27 +512,27 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 9. FINAL CTA */}
+          {/* 11. FINAL CTA */}
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              Ready to Install the System?
+              Ready to Tighten Up Your Lead Handling?
             </h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              We'll map the best plan for your business in a quick call.
+              We'll map your current lead flow and show where automation fits in a quick call.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                to="/contact"
+                to="/contact#form"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0066FF] text-white font-semibold hover:bg-[#0052CC] transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 Book a Call
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <Link
-                to="/contact"
+                to="/services"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg border border-white/20 text-gray-300 font-semibold hover:border-white/40 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
               >
-                Contact Us
+                View Services
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
